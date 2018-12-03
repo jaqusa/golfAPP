@@ -1,0 +1,144 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+/*# sourceMappingURL=style.css.map */
+/* .logologin{
+  padding-left: 200px;
+  padding-top: 50px; */
+body {
+  background-image: url("https://i.pinimg.com/originals/f2/56/fa/f256fa53f4a71faeafdc7d83ece05548.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Numans', sans-serif; }
+
+.container {
+  height: 100%;
+  align-content: center; }
+
+.card {
+  height: 570px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.card1 {
+  height: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #64a15e; }
+
+.social_icon span:hover {
+  color: white;
+  cursor: pointer; }
+
+.card-header h3 {
+  color: white; }
+
+.social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px; }
+
+.input-group-prepend span {
+  width: 50px;
+  background-color: #64a15e;
+  color: black;
+  border: 0 !important; }
+
+input:focus {
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important; }
+
+.remember {
+  color: white; }
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px; }
+
+.login_btn {
+  color: black;
+  background-color: #64a15e;
+  width: 100px; }
+
+.login_btn:hover {
+  color: black;
+  background-color: white; }
+
+.links {
+  color: white; }
+
+.links a {
+  margin-left: 4px; }
+
+.front9, .back9 {
+  margin-bottom: 1em; }
+  .front9 .hole, .back9 .hole {
+    background-color: #83828c;
+    color: #fff; }
+    .front9 .hole span, .back9 .hole span {
+      padding: .5em 0; }
+  .front9 .par, .back9 .par {
+    background-color: #ccc;
+    color: #777; }
+    .front9 .par span, .back9 .par span {
+      padding: .25em 0; }
+  .front9 .score, .back9 .score {
+    color: #64a15e;
+    background-color: white; }
+    .front9 .score span, .back9 .score span {
+      padding: .75em 0; }
+  .front9 span, .back9 span {
+    border: rgba(0, 0, 0, 0.25) solid 1px;
+    border-width: 0 0 0 1px;
+    display: inline-block;
+    text-align: center;
+    width: 3em; }
+    .front9 span:first-child, .back9 span:first-child {
+      text-align: left;
+      padding-left: 0.5em;
+      padding-right: 4em;
+      border-width: 0; }
+
+@media screen and (min-width: 80em) {
+  .front9, .back9 {
+    display: inline-block; }
+  .back9 span:first-child {
+    display: none; } }
+
+html, body {
+  font-family: 'Open Sans', serif; }
+
+.hero.is-info {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://wallpapercave.com/wp/qt99KxP.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5; }
+
+.hero-head {
+  background-color: rgba(247, 242, 242, 0.8); }
+
+.isout-lined {
+  color: #386c04; }
+
+/*# sourceMappingURL=style.css.map */
