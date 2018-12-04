@@ -141,4 +141,59 @@ html, body {
 .isout-lined {
   color: #386c04; }
 
+.profile-vcard {
+  border: 1px solid #64a15e;
+  padding: 2px;
+  background: #F6F6F6;
+  opacity: 0.9;
+  height: 300px;
+  width: 300px; }
+
+.profile-vcard img {
+  height: 300px;
+  width: 500px; }
+
+.profile-detail {
+  padding-bottom: 20px;
+  margin: -50px 0px 0px 0px;
+  position: relative;
+  top: 120px;
+  left: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 80vh; }
+
+.profile-detail h1 {
+  font-size: 25px;
+  color: #fff;
+  margin-bottom: 10px; }
+
+.profile-detail p {
+  margin: 5px 0px;
+  color: #fff; }
+
+.profile-detail img {
+  height: 150px;
+  width: 150px; }
+
+.profile-count-detail {
+  margin: 0px; }
+
+.profile-count-detail .count-no {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: rgba(56, 108, 4, 0.8);
+  color: #FFF;
+  position: relative;
+  top: 120px;
+  width: 80vh;
+  left: 300px; }
+
+.profile-count-detail .count-no h2 {
+  margin: 10px 0px 0px 0px; }
+
+.zva-content-course {
+  text-align: center; }
+
+.container {
+  text-align: center; }
+
 /*# sourceMappingURL=style.css.map */
