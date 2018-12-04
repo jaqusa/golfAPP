@@ -82,6 +82,9 @@ input:focus {
 .links a {
   margin-left: 4px; }
 
+.mensaje {
+  color: white; }
+
 .front9, .back9 {
   margin-bottom: 1em; }
   .front9 .hole, .back9 .hole {

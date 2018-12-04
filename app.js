@@ -11,7 +11,7 @@ const path         = require('path');
 const passport     = require("./helpers/passport");
 const session      = require("express-session");
 const MongoStore   = require("connect-mongo")(session);
-
+const flash = require('connect-flash');
 mongoose
   .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
@@ -31,6 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash());
 
 app.use(
   session({
