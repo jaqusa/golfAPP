@@ -106,52 +106,51 @@ body{
   .mensaje{
     color: white;
   }
-  //css de scorecard
-  .front9, .back9 {
-    margin-bottom: 1em;
-    .hole {
-      background-color: #83828c;
-      color: #fff;
-      span {padding: .5em 0;}
-    }
-    .par {
-      background-color: #ccc;
-      color: #777;
-      span {padding: .25em 0;}
-    }
-    .score {
-      color: #64a15e;
-      span {padding: .75em 0;}
-      background-color: white;
-    }
- 
-    span {
-      border: rgba(0,0,0,.25) solid 1px;
-      border-width: 0 0 0 1px;
-      display: inline-block;
-      text-align: center;
-      width: 3em;
-      
-      &:first-child {
-        text-align: left;
-        padding-left: 0.5em;
-        padding-right: 4em;
-        border-width: 0;
-      }
-    }
+   //css de scorecard
+ .front9, .back9 {
+  margin-bottom: 1em;
+  .hole {
+    background-color: #83828c;
+    color: #fff;
+    span {padding: .5em 0;}
   }
-  
-  
-  @media screen and (min-width: 80em) {
-    .front9, .back9 {
-      display: inline-block
-    }
-    .back9 span:first-child {
-      display: none;
-    }
+  .par {
+    background-color: #ccc;
+    color: #777;
+    span {padding: .25em 0;}
   }
+  .score1 {
+    color: #64a15e;
+    span {padding: .75em 0;}
+    background-color: white;
+  }
+
+  span {
+    border: rgba(0,0,0,.25) solid 1px;
+    border-width: 0 0 0 1px;
+    display: inline-block;
+    text-align: center;
+    width: 3em;
     
- //fin css score cards   
+    &:first-child {
+      text-align: left;
+      padding-left: 0.5em;
+      padding-right: 4em;
+      border-width: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .front9, .back9 {
+    display: inline-block
+  }
+  .back9 span:first-child {
+    display: none;
+  }
+}
+  
+//fin css score cards  
 
  //css index
  html,body {
@@ -193,9 +192,7 @@ body{
 }
 
 
-////// css profile
-
-
+// css perfil
 .profile-vcard{
   border:1px solid #64a15e;
   padding:2px;
@@ -246,6 +243,12 @@ body{
 .profile-count-detail .count-no h2{
   margin:10px 0px 0px 0px;
 }
+.btnmperf{
+  color:white;
+  background-color:  rgba(56, 108, 4, 1);
+}
+//fin css perfil
+
 
 
 ////////////////CSS TEMPORAL DEL INDEX///////////
@@ -259,3 +262,6 @@ body{
 
 
 ///////////////////TEMPORAL//////////////////////
+
+
+

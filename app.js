@@ -66,8 +66,10 @@ app.locals.title = 'Golf-O';
 
 
 const auth = require("./routes/auth");
+const match = require("./routes/match/scorecard");
 const index = require('./routes/index');
 app.use("/", auth);
+app.use("/match", match);
 app.use('/', index);
 
 

@@ -58,7 +58,7 @@ router.post('/signup', (req, res, next) => {
         if (response === null) {  
           User.register(req.body,req.body.password)
           .then(user => {
-            response.json(user)
+            res.redirect('/profile')
           })
           .catch(err => {
             console.log(err);
@@ -110,9 +110,6 @@ router.get('/logout', (req, res) => {
 
 
 
-router.get('/creatematch',checkIfIsHere,(req, res, next) => {
-  res.render('match/creatematch');
-});
 
 
 

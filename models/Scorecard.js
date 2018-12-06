@@ -4,14 +4,24 @@ const Schema = mongoose.Schema;
 const scorecardSchema = new Schema(
   {
     nameCourse: String,
-    holes:[{
-        type: Schema.Types.ObjectId,
-    }] ,
-    users: [
-      {
-        type: Schema.Types.ObjectId,
-      }
-    ],
+    users:[{
+      user:{
+        type:Schema.Types.ObjectId,
+        ref:"User"
+      },
+      turn:[{
+        handicap:Number,
+        holeAdvantage:Boolean,
+        stroke:Number,
+        score:Number,
+        totalStroke:Number,
+        resultMatch:Number 
+      }],
+      hole:[{
+        advantage: Array,
+        par:Array,
+      }]
+    }]
   },
   {
     timestamps: {
@@ -26,14 +36,3 @@ const scorecardSchema = new Schema(
 
 
 
-
-
-
-
-
-
-
-tiros:[] //length = nr users
-par:[] // req API
-hoyos:[] // lo da el user que crea el match
-ventajas:[] // depende del nr de hoyos

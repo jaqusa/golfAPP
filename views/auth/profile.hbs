@@ -1,17 +1,17 @@
 
-    <div class="container">
+    <div class="container"  style='padding-bottom:200px'>
         <div class="row">
                 <div class="row">
               
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row profile-detail">
-                            <div class="col-md-4 col-sm-4 col-xs-5 text-center">
-                                <img src="images/sanperfil.jpg" class="img-circle img-thumbnail">
+                    <div class=" col-md-12 col-sm-12 col-xs-12" >
+                        <div class="row profile-detail"  style='padding-top:20px'>
+                            <div class=" col-md-4 col-sm-4 col-xs-5 text-center">
+                                <img src="images/san1.jpg"  class="img-circle img-thumbnail">
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-7">
                                 <h1>Santiago Miranda</h1>
-                                <p>Nombre de Usuario</p>
-                                <p>Sanmiranda</p>
+                          
+                                <h3 style='color:white'>Sanmiranda</h3>
                             </div>
                         </div>
                     </div>
@@ -32,16 +32,21 @@
                               <div class="col-md-4 col-sm-4 col-xs-12 count-no">
                                 <h2>Domingo 12:00pm</h2>
                                 <p>Matches Pendientes</p>
+                                <a href="/match/live">
+                                   <button>Iniciar Match</button>
+                                </a>
                             </div>
                             
                             <div class="count-no col-xs-12 col-md-4 col-sm-4 ">
-                               <a href="/creatematch">
-                                   <button>Crear Match</button>
-                                </a>
-                              <div class="count-no col-xs-12 col-md-4 col-sm-4 ">
-                               <a href="/logout">
+                               <a href="/match/create">
+                                   <button class="btnperf">Crear Match</button>
+                                              </a>
+                                   {{!-- <a href="/editarperfil">
+                                   <button class="btnperf">Editar Perfil</button>
+                                   </a> --}}
+                                   <a href="/logout">
                                    <button>Log Out</button>
-                                </a>
+                                   </a>
 
                               
                             </div>
@@ -50,4 +55,4 @@
                 </div>
             </div>
         </div>
-
+    

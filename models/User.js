@@ -4,7 +4,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new Schema (
   {
-    name:String,
+    //name:String,
     username: {
       type: String,
       required: true,
@@ -25,6 +25,10 @@ const userSchema = new Schema (
     //   enum: [hombre, mujer]
     // },
     handicap: Number,
+    games:[{
+      type:Schema.Types.ObjectId,
+      ref:"Scorecard"
+    }]
   //   homeCourse: String,
   // },
   },

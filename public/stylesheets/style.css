@@ -97,10 +97,10 @@ input:focus {
     color: #777; }
     .front9 .par span, .back9 .par span {
       padding: .25em 0; }
-  .front9 .score, .back9 .score {
+  .front9 .score1, .back9 .score1 {
     color: #64a15e;
     background-color: white; }
-    .front9 .score span, .back9 .score span {
+    .front9 .score1 span, .back9 .score1 span {
       padding: .75em 0; }
   .front9 span, .back9 span {
     border: rgba(0, 0, 0, 0.25) solid 1px;
@@ -201,6 +201,10 @@ html, body {
 
 .profile-count-detail .count-no h2 {
   margin: 10px 0px 0px 0px; }
+
+.btnmperf {
+  color: white;
+  background-color: #386c04; }
 
 .zva-content-course {
   text-align: center; }

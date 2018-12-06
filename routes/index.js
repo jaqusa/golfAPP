@@ -9,13 +9,10 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.get('/scorecard', (req, res, next) => {
-  res.render('match/scorecard');
-});
 
-router.get('/match', (req, res, next) => {
-  res.render('match/match');
-});
+
+
+
 
 router.get('/probando', (req, res, next)=>{
   var opts = {host: 'api.golfbert.com', path: '/v1/courses'}
