@@ -4,10 +4,8 @@ const passport = require("passport");
 
 
 function checkIfIsHere(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }else 
-  return res.redirect("/login");
+  if (!req.app.locals.loggedUser) return res.redirect('/login')
+  next()
 }
 
 router.get('/login', (req, res, next) => {
@@ -18,10 +16,15 @@ router.get('/login', (req, res, next) => {
 router.post('/login',(req, res, next)=>{
   passport.authenticate('local',(info, user, err)=>{
     if(err) return res.render('auth/login',{message:err.message})
-    if(!user) return res.render('auth/login',{message:err.message})
-    res.render('auth/profile')
+    if(!user) return res.render('auth/login',{message:err.message})    
+    req.app.locals.loggedUser = user
+    res.redirect('/profile')
   })(req, res, next)
 })
+
+// router.post('/login',passport.authenticate('local'),(req, res, next)=>{
+//   res.redirect('/profile')
+// })
 
 
 router.get('/signup', (req, res, next) => {
@@ -84,7 +87,8 @@ router.post('/signup', (req, res, next) => {
 
 
 
-router.get('/profile',checkIfIsHere, (req, res, next) => {
+router.get('/profile', checkIfIsHere, (req, res, next) => {
+  console.log(req.user)
   res.render('auth/profile');
 });
 
@@ -97,6 +101,7 @@ router.get('/profile',checkIfIsHere, (req, res, next) => {
   
 // })
 router.get('/logout', (req, res) => {
+  req.app.locals.loggedUser = ""
   req.session.destroy(err => {
     if (err) res.send(err);
     else return res.redirect('/login');

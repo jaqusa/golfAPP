@@ -8,6 +8,8 @@
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+    "aws4": "^1.8.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",

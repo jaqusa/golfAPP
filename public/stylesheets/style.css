@@ -144,6 +144,15 @@ html, body {
 .isout-lined {
   color: #386c04; }
 
+.match {
+  color: white;
+  text-align: center; }
+
+.titulos {
+  background-color: #aeadb3;
+  border: #aeadb3;
+  text-align: center; }
+
 .profile-vcard {
   border: 1px solid #64a15e;
   padding: 2px;
