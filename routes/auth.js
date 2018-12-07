@@ -88,8 +88,8 @@ router.post('/signup', (req, res, next) => {
 
 
 router.get('/profile', checkIfIsHere, (req, res, next) => {
-  console.log(req.user)
-  res.render('auth/profile');
+  const user = req.app.locals.loggedUser
+  res.render('auth/profile',user);
 });
 
 
