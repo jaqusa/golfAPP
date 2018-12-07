@@ -16,25 +16,18 @@ router.get('/create',(req, res, next) => {
 });
 
 router.post('/create',(req, res, next) => {
-  const course = req.body.course
-  const j1 = req.body.jugador1
-  const j2 = req.body.jugador2
-  const j3 = req.body.jugador3
-  
-  Course.findOne({name: course})
+ 
+  Course.findOne({name: req.body.course})
   .then(course=>{
-    User.findOne({username:j1})
+    User.findOne({username:req.body.jugador1})
     .then(user1=>{
-      User.findOne({username:j2})
+      User.findOne({username:req.body.jugador2})
       .then(user2=>{
-        User.findOne({username:j3})
+        User.findOne({username:req.body.jugador3})
         .then(user3=>{
-          console.log(user1)
-          console.log(user2)
-          console.log(user3)
-          console.log(course)
-          destructuring(course,[user1,user2,user3])
-
+          const usersArr = [user1,user2,user3]
+          destructuring(res,course,usersArr)
+          
         })
         .catch(e=>{console.log(e)})
       })
@@ -45,26 +38,28 @@ router.post('/create',(req, res, next) => {
   .catch(e=>{console.log(e)})
 });
 
-function destructuring(course,users){
+function destructuring(res,course,users){
 
   const usuarios = []
   users.forEach(u=>{
     const user = {
       user:u._id,
-      turn:[]
+      username:u.username,
+      turn:[],
+      hole:[]
     }
     course.ventajas.forEach(v=>{
       course.par.forEach(p=>{
-
+        
         const turn = {
           stroke:0,
           score:0,
           handicap:u.handicap,
-         // holeAdvantage:Boolean,
-          //stroke:Number,
-         // score:Number,
-          //totalStroke:Number,
-          //resultMatch:Number 
+          holeAdvantage:true,
+          stroke:0,
+          score:0,
+          totalStroke:0,
+          resultMatch:0
         }
         user.turn.push(turn)  
 
@@ -83,20 +78,28 @@ function destructuring(course,users){
     nameCourse: course.name,
     users:usuarios
 
-  })
+  }).then(user=>{
+    res.redirect(`/match/${user._id}`)
+  }).catch(e=>console.log(e))
+  
 
 
 }
 
-router.get('/scorecard',checkIfIsHere, (req, res, next) => {
+router.get('/scorecard', (req, res, next) => {
   res.render('match/scorecard');
 });
 
 
-router.get('/live', checkIfIsHere,(req, res, next) => {
-  //const form = document.querySelector("form")
+router.get('/:id',(req, res, next) => {
+  const id = req.params.id
+  Scorecard.findById(id)
+  .then(match=>{
+    console.log(match.users[0])
+    console.log(match.users[0].totalStroke)
+    res.render('match/live',{match});
+  })
   
-  res.render('match/match');
 });
 
 

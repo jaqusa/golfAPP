@@ -1,0 +1,30 @@
+<table class="table table-striped match">
+  <thead>
+    <tr class='titulos'>
+      <th scope="col">Jugadores</th>
+      <th scope="col">Tiros</th>
+      <th scope="col">T.Total</th>
+      <th scope="col">R.Match</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each match.users}}
+    <form action="/live" method="POST">
+    <tr class='filaimp'>
+      <th scope="row">{{this.username}}</th>
+      <td><input type="Number" class='tirosplayer1' name="player1"></td>
+      <td id="j1TT">{{this.totalStroke}}</td>
+      <td id="j1RM">{{this.resultMatch}}</td>
+      <td id="j1S">{{this.score}}</td>    
+    </tr>
+    {{/each}}
+  
+    <input type="submit" value='enviar'>
+    </form>
+  </tbody>
+</table>
+
+
+

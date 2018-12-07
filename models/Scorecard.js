@@ -9,6 +9,7 @@ const scorecardSchema = new Schema(
         type:Schema.Types.ObjectId,
         ref:"User"
       },
+      username:String,
       turn:[{
         handicap:Number,
         holeAdvantage:Boolean,
