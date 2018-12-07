@@ -4,6 +4,12 @@ Es una app web para crear matches de golf, salir al campo a jugar y ver quien ga
 
 Desarrollada en el modelo MVC y con Express en nodeJs.
 
+Esta App consume una API propia. 
+Para consumirla: 
+https://nameless-dawn-67421.herokuapp.com/api_js
+Para colaborar:
+dev@javierquinte.com 
+
 
 Ejecutar la App en Local:
 
@@ -17,3 +23,5 @@ Ejecutar la App en Local:
 Ejecutar la App en la nube:
 
 https://shielded-mountain-78036.herokuapp.com/
+
+
