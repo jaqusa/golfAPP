@@ -1,4 +1,6 @@
-<table class="table table-striped match">
+{{!-- vista dinamica --}}
+
+{{!-- <table class="table table-striped match">
   <thead>
     <tr class='titulos'>
       <th scope="col">Jugadores</th>
@@ -10,21 +12,167 @@
   </thead>
   <tbody>
 
-    {{#each match.users}}
-    <form action="/live" method="POST">
+    
+    <form action="/match/{{objnew.id}}" method="POST">
+    {{#each objnew.match.users}}
     <tr class='filaimp'>
       <th scope="row">{{this.username}}</th>
-      <td><input type="Number" class='tirosplayer1' name="player1"></td>
-      <td id="j1TT">{{this.totalStroke}}</td>
-      <td id="j1RM">{{this.resultMatch}}</td>
-      <td id="j1S">{{this.score}}</td>    
+      <td><input type="Number" class='tirosplayer1' name="tiros"></td>
+      <td id="j1TT">{{this.tS}}</td>
+      <td id="j1RM">{{this.turn.[0].resultMatch}}</td>
+      <td id="j1S">{{this.turn.[0].score}}</td>    
     </tr>
     {{/each}}
   
     <input type="submit" value='enviar'>
     </form>
   </tbody>
+</table> --}}
+
+{{!-- vista estatica --}}
+
+
+
+
+<div class='top2 match'>
+  <h2>Hoyo Actual: <span id="hole"> 1</span> </h2>
+<table class="table match">
+  <thead>
+    <tr class='titulos'>
+      <th scope="col">Jugadores</th>
+      <th scope="col">Golpes</th>
+      <th scope="col">Golpes Totales</th>
+      <th scope="col">Resultado del Partido</th>
+      {{!-- <th scope="col">Score</th> --}}
+    </tr>
+  </thead>
+  <tbody> 
+    <form  action="/match/{{objnew.id}}" method="POST" id="form">
+    <tr class='filaimp'>
+      <th scope="row" id="j1">{{objnew.match.users.[0].username}}</th>
+      <td><input type="Number" class='tirosplayer1' name="tiros1" value="0"></td>
+      <div class="datos1">
+      <td id="j1TT">0</td>
+      <td id="j1RM">0</td>
+      {{!-- <td id="j1S">0</td> --}}
+      </div>
+    </tr>
+    <tr class='filapar'>
+      <th scope="row" id="j2">{{objnew.match.users.[1].username}}</th>
+       <td><input type="Number" class='tirosplayer1' name="tiros2" value="0"></td>
+       <div class="datos2">
+      <td id="j2TT">0</td>
+      <td id="j2RM">0</td>
+      {{!-- <td id="j2S">0</td> --}}
+      </div>
+    </tr>
+     <tr class='filaimp'>
+      <th scope="row" id="j3">{{objnew.match.users.[2].username}}</th>
+       <td><input type="Number" class='tirosplayer1' name="tiros3" value="0"></td>
+       <div class="datos3">
+      <td id="j3TT">0</td>
+      <td id="j3RM">0</td>
+      {{!-- <td id="j3S">0</td> --}}
+      </div>
+    </tr>
+    <p> <button >Hoyo Siguiente: <span id="holeB" class="form-control"> 2</span></button> </p>
+    </form>
+    <p> <button onclick="fin()" class="form-control" >Fin del juego</button> </p>
+  </tbody>
 </table>
+<a href="/profile" class="links">Ir al Perfil</a>
+</div>
 
 
 
+<script>
+
+
+const $form = document.querySelector("#form")
+var winner = []
+
+var total = function(event) {
+  event.preventDefault();
+ const form = new FormData($form)
+ const j1 = parseInt(form.get('tiros1'))
+ const j2 = parseInt(form.get('tiros2'))
+ const j3 = parseInt(form.get('tiros3'))
+
+ var hole = parseInt(document.getElementById("hole").innerText)
+ 
+ hole++
+ if(hole>18)
+  hole = 18
+  document.getElementById("hole").innerText = hole
+ var holeB = parseInt(document.getElementById("holeB").innerText)
+ holeB++
+ if(holeB>18)
+  holeB = "Fin del juego"
+  document.getElementById("holeB").innerText = holeB
+ 
+ const j1tt = parseInt(document.getElementById("j1TT").innerText)
+ const j2tt = parseInt(document.getElementById("j2TT").innerText)
+ const j3tt = parseInt(document.getElementById("j3TT").innerText)
+ 
+  document.getElementById("j1TT").innerText = j1tt+j1
+  document.getElementById("j2TT").innerText = j2tt+j2
+  document.getElementById("j3TT").innerText = j3tt+j3
+
+
+var arrMatch = [j1,j2,j3]
+
+
+arrMatch.sort(function(a, b) {
+  return a - b;
+});
+
+
+
+var j1RM = parseInt(document.getElementById("j1RM").innerText)
+var j2RM = parseInt(document.getElementById("j2RM").innerText)
+var j3RM = parseInt(document.getElementById("j3RM").innerText)
+ 
+
+  if(arrMatch[0]<arrMatch[1])
+    if(arrMatch[0] === j1 && j1 !==0)
+    j1RM++
+    document.getElementById("j1RM").innerText = j1RM
+    if(arrMatch[0] === j2 && j1 !==0 )
+    j2RM++
+    document.getElementById("j2RM").innerText = j2RM
+    if(arrMatch[0] === j3 && j1 !==0)
+    j3RM++
+    document.getElementById("j3RM").innerText = j3RM
+
+ winner = [j1RM,j2RM,j3RM]
+
+
+
+};
+
+
+function fin () {
+winner.sort(function(a, b) {
+  return a - b;
+});
+
+var jgdr1 = document.getElementById("j1").innerText
+var jgdr2 = document.getElementById("j2").innerText
+var jgdr3 = document.getElementById("j3").innerText
+
+
+
+if (winner[winner.length-1] == j1RM.innerText) j1RM.innerText= "GANADOR"
+if (winner[winner.length-1] == j2RM.innerText)  j2RM.innerText= "GANADOR"
+if (winner[winner.length-1] == j3RM.innerText) j3RM.innerText= "GANADOR"
+
+
+
+}
+
+var form = document.getElementById("form");
+
+$form.addEventListener("submit", total);
+
+
+</script>

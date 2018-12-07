@@ -1,12 +1,22 @@
+<nav>
+ <div class="barra form-inline ">
+  <div class="uk-position-center-left">
+  <a  href="/">
+    <div>
+    <img id="logo-golfo" src="images/minilogo.png" alt="minilogo" width="50px">
+    </div>
+  </a>
+  </div>
 
-<div class="container">
+</nav>
+<div class="top "style='padding-top:100px;'>
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
 				<h3>Registro</h3>
-				<div class="d-flex justify-content-end social_icon">
+				{{!-- <div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
-				</div>
+				</div> --}}
 			</div>
 			<div class="card-body">
 				<form action="/signup" method="POST">
@@ -41,13 +51,6 @@
 						</div>
 						<input type="text" class="form-control" placeholder="handicap" name="handicap">
 					</div>
-					{{!-- <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-camera"></i></span>
-						</div>
-						<label for="image"></label>
-             <input type="file" accept="image/*" name="image" class="form-control" id="image" name="image">
-					</div> --}}
 					<div class="mensaje">
 					{{#if message}}
   				<p class="error">{{message}}</p>
@@ -61,10 +64,9 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Ya estas registrado?<a href="/login">Log In</a>
+					Ya estas registrado?<a href="/login" class="anchor">Log In</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-

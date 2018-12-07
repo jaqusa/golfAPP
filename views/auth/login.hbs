@@ -1,12 +1,23 @@
+<nav>
+ <div class="barra form-inline ">
+  <div class="uk-position-center-left">
+  <a  href="/">
+    <div>
+    <img id="logo-golfo" src="images/minilogo.png" alt="minilogo" width="50px">
+    </div>
+  </a>
+  </div>
 
-<div class="container">
+</nav>
+
+<div class="top "style='padding-top:100px;'>
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
 				<h3>Login</h3>
-				<div class="d-flex justify-content-end social_icon">
+				{{!-- <div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
-				</div>
+				</div> --}}
 			</div>
 			<div class="card-body">
 				<form action="/login" method="POST">
@@ -37,10 +48,9 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					No estas registrado?<a href="/signup">Registrate</a>
+					No estas registrado?<a href="/signup" >Registrate</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Se te olvido la contraseña?</a>
 				</div>
 			</div>
 		</div>

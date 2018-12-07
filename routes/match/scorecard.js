@@ -48,8 +48,9 @@ function destructuring(res,course,users){
       turn:[],
       hole:[]
     }
-    course.ventajas.forEach(v=>{
-      course.par.forEach(p=>{
+    
+    for(var i=0; i<18;i++ ){
+    
         
         const turn = {
           stroke:0,
@@ -63,15 +64,16 @@ function destructuring(res,course,users){
         }
         user.turn.push(turn)  
 
+       
         const hole = {
-          advantage: v,
-          par: p,
+          advantage: course.ventajas[i],
+          par: course.par[i],
         }
         user.hole.push(hole)
-       
-      })
       
-    })
+      
+      
+    }
     usuarios.push(user)
   })
   Scorecard.create({
@@ -95,12 +97,34 @@ router.get('/:id',(req, res, next) => {
   const id = req.params.id
   Scorecard.findById(id)
   .then(match=>{
-    console.log(match.users[0])
-    console.log(match.users[0].totalStroke)
-    res.render('match/live',{match});
+    let turns = match.users.map(u => { return u.turn })
+    let holes = match.users.map(u => { return u.hole })
+    let totalStrokes1 = turns[0].map(r => {
+      return r.totalStroke
+    })
+    let totalStrokes2 = turns[1].map(r => {
+      return r.totalStroke
+    })
+    let totalStrokes3 = turns[2].map(r => {
+      return r.totalStroke
+    })
+    totalStrokes1number = totalStrokes1.reduce((a,b) => a + b)
+    totalStrokes2number = totalStrokes2.reduce((a,b) => a + b)
+    totalStrokes3number = totalStrokes3.reduce((a,b) => a + b)
+    match.users[0].tS = totalStrokes1number
+    match.users[1].tS = totalStrokes2number
+    match.users[2].tS = totalStrokes3number
+
+    let objnew = { match, turns, holes, id  }
+    console.log(objnew.holes[0][0])
+    res.render('match/live', { objnew });
   })
+
   
 });
+
+
+
 
 
 module.exports = router

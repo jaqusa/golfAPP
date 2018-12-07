@@ -19,8 +19,8 @@ const scorecardSchema = new Schema(
         resultMatch:Number 
       }],
       hole:[{
-        advantage: Array,
-        par:Array,
+        advantage: Number,
+        par:Number,
       }]
     }]
   },
