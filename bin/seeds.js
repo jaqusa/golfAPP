@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
-const Campo = require('../models/Campo')
+const Course = require('../models/Course')
+const fetch = require('node-fetch');
 
-const dbName = 'golf'
-mongoose.connect("mongodb://admin:admin12345@ds225028.mlab.com:25028/golf")
+mongoose.connect(process.env.DB)
 
+fetch('https://nameless-dawn-67421.herokuapp.com/api_js')
+.then(res =>  res.txt())
+.then(json => console.log(json));
 
 const Campos = [
   {
@@ -18,11 +21,11 @@ const Campos = [
   }]
 
 
-  Campo.create(Campos)
-  .then(campo =>{
-    console.log('campos created')
-    mongoose.connection.close()
-  })
-  .catch(err=>{
-    console.log('something went wrong')
-  })
+  // Campo.create(Campos)
+  // .then(campo =>{
+  //   console.log('campos created')
+  //   mongoose.connection.close()
+  // })
+  // .catch(err=>{
+  //   console.log('something went wrong')
+  // })

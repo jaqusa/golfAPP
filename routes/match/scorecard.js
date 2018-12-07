@@ -4,14 +4,12 @@ const User = require("../../models/User");
 const Course = require('../../models/Course')
 
 
-
-
 function checkIfIsHere(req, res, next) {
   if (!req.app.locals.loggedUser) return res.redirect('/login')
   next()
 }
 
-router.get('/create',(req, res, next) => {
+router.get('/create',checkIfIsHere,(req, res, next) => {
   res.render('match/create');
 });
 
@@ -88,12 +86,12 @@ function destructuring(res,course,users){
 
 }
 
-router.get('/scorecard', (req, res, next) => {
+router.get('/scorecard',checkIfIsHere, (req, res, next) => {
   res.render('match/scorecard');
 });
 
 
-router.get('/:id',(req, res, next) => {
+router.get('/:id',checkIfIsHere,(req, res, next) => {
   const id = req.params.id
   Scorecard.findById(id)
   .then(match=>{
