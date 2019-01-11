@@ -1,6 +1,6 @@
 # Golf-O
 
-Es una aplicación web para crear partidos de golf y salir al campo a jugar mientras ves los resultado del juego en tiempo real y ver quien gana.
+Es una aplicación web para crear partidos de golf, salir al campo a jugar mientras ves los resultado del juego en tiempo real y ver quien gana.
 
 Desarrollada en el modelo MVC y con Express en nodeJs.
 
